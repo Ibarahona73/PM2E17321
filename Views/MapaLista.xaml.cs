@@ -6,4 +6,15 @@ public partial class MapaLista : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void ubicaciones_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+    }
+
+    /* protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        ubicaciones.ItemsSource = await App.Database.GetListPersons();
+    } */
 }
