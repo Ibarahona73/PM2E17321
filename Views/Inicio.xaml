@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E17321.Views.Inicio"
+             Title="Inicio">
+
+
+    <VerticalStackLayout>
+        <Image Source="uth.png" BackgroundColor="#00000000" HeightRequest="75" WidthRequest="100"/>
+
+        <Image  x:Name="foto" BackgroundColor="AliceBlue" HeightRequest="100" WidthRequest="100" HorizontalOptions="CenterAndExpand"
+        VerticalOptions="CenterAndExpand"/>
+
+        <Entry  x:Name="Latitud" Placeholder="Ingrese una Latitud" Keyboard="Numeric"/>
+
+        <Entry  x:Name="Longitud" Placeholder="Ingrese una Longitud" Keyboard="Numeric"/>
+
+        <Entry  x:Name="Descripcion" Placeholder="Descripcion" Keyboard="Text"  />
+
+        <Button x:Name="btnAgregar" Text="Agregar" Clicked="btnAgregar_Clicked" />
+        
+        <Button x:Name="btnSitios" Text="Lista Sitios" Clicked="btnSitios_Clicked" />
+        
+        <Button x:Name="btnSalir" Text="Salir App" Clicked="btnSalir_Clicked" />
+
+    </VerticalStackLayout>
+</ContentPage>
