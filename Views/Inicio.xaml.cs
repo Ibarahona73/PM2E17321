@@ -47,17 +47,25 @@ public partial class Inicio : ContentPage
 
     private async void btnAgregar_Clicked(object sender, EventArgs e)
     {
-        var lugar = new Models.Sitios
+        if (double.TryParse(Latitud.Text, out double latitud) && double.TryParse(Longitud.Text, out double longitud))
         {
-            Latitud = Latitud.GetValue,
-            Latitud = Latitud.GetValue,
-            Desc = Descripcion.Text,
-            foto = GetImage64()
-        };
+            var lugar = new Models.Sitios
+            {
+                Latitud = latitud,
+                Longitud = longitud,
+                Desc = Descripcion.Text,
+                foto = GetImage64()
+            };
 
-        if (await App.Database.StoreSitios(lugar) > 0)
+            if (await App.Database.StoreSitios(lugar) > 0)
+            {
+                await DisplayAlert("Aviso", "Registro ingresado con éxito!!", "OK");
+            }
+        }
+        else
         {
-            await DisplayAlert("Aviso", "Registro ingresado con exito!!", "OK");
+            // Manejo de error si la entrada de Latitud o Longitud no es un número válido
+            await DisplayAlert("Error", "La Latitud y la Longitud deben ser valores numéricos.", "OK");
         }
     }
 

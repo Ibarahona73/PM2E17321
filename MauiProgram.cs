@@ -13,11 +13,13 @@ namespace PM2E17321
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
 
-#if DEBUG
-    		builder.Logging.AddDebug();
-#endif
+                .UseMauiMaps();
+                ;
+
+
+            builder.Services.AddSingleton<Controllers.SitiosController>();
 
             return builder.Build();
         }

@@ -7,14 +7,20 @@ public partial class MapaLista : ContentPage
 		InitializeComponent();
 	}
 
-    private void ubicaciones_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private async void ubicaciones_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-
+        
     }
 
-    /* protected override async void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
-        ubicaciones.ItemsSource = await App.Database.GetListPersons();
-    } */
+        ubicaciones.ItemsSource = await App.Database.GetListSitios();
+    }
+
+    private async void ToolbarItem_Clicked(object sender, EventArgs e)
+    {
+        var aitios = new Views.Mapa();
+        await Navigation.PushAsync(aitios);
+    }
 }
