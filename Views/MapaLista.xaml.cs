@@ -20,7 +20,7 @@ public partial class MapaLista : ContentPage
 
     private async void ToolbarItem_Clicked(object sender, EventArgs e)
     {
-        var aitios = new Views.Mapa();
+        var aitios = new Mapa();
         await Navigation.PushAsync(aitios);
     }
 }
