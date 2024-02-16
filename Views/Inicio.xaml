@@ -17,7 +17,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         
-        <Image Source="uth.png" BackgroundColor="#00000000" HeightRequest="75" WidthRequest="100" HorizontalOptions="CenterAndExpand" Grid.Row="1"/>
+        <Image Source="uth.png" BackgroundColor="#00000000" HeightRequest="100" WidthRequest="100" HorizontalOptions="CenterAndExpand" Grid.Row="1"/>
 
         <Label Text="Sitio Visitado" FontSize="25" Grid.Row="1" Grid.Column="1" FontAttributes="Bold" TranslationY="10" HorizontalOptions="StartAndExpand"/>
 

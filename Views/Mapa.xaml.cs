@@ -36,5 +36,21 @@ public partial class Mapa : ContentPage
         hola.MoveToRegion(MapSpan.FromCenterAndRadius(pin.Location, Distance.FromMiles(1)));
     }
 
+    private async void btnCompartir_Clicked(object sender, EventArgs e)
+    {
+        string url = $"https://www.google.com/maps/search/?api=1&query={latitud},{longitud}&query_place_id={descripcion}";
 
+        try
+        {
+            await Share.RequestAsync(new ShareTextRequest
+            {
+                Text = "¡Checa Este Sitio Turistico!",
+                Uri = url
+            });
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"No se pudo compartir la ubicación: {ex.Message}", "OK");
+        }
+    }
 }

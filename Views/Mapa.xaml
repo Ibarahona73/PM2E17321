@@ -2,13 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PM2E17321.Views.Mapa"
-             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps">
+             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
+             Title="Mi Sitio">
 
 
 
     <StackLayout>
-        <maps:Map x:Name="hola" MapType="Hybrid"/>
+        <maps:Map x:Name="hola" MapType="Hybrid" HeightRequest="650" TranslationY="-15"/>
 
+        <Button x:Name="btnCompartir" Text="Compartir Imagen Ubicacion" Clicked="btnCompartir_Clicked" HorizontalOptions="CenterAndExpand" TranslationY="-10" />
     </StackLayout>
 
 </ContentPage>
