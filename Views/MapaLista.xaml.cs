@@ -25,7 +25,7 @@ public partial class MapaLista : ContentPage
 
             if (goToLocation)
             {
-                await Navigation.PushAsync(new Mapa(selectedLocation.Latitud, selectedLocation.Longitud, selectedLocation.Desc));
+                await Navigation.PushAsync(new Mapa(selectedLocation.Latitud, selectedLocation.Longitud, selectedLocation.Desc, true)); // True para mostrar la ubicación del usuario
             }
         }
     }

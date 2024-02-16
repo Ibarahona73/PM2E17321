@@ -11,18 +11,24 @@ public partial class Mapa : ContentPage
     double latitud;
     double longitud;
     string descripcion;
+    bool mostrarUbicacionUsuario;
 
 
-    public Mapa(double latitud, double longitud, string descripcion)
-	{
+    public Mapa(double latitud, double longitud, string descripcion , bool mostrarUbicacionUsuario)
+    {
 		InitializeComponent();
 
         this.latitud = latitud;
         this.longitud = longitud;
         this.descripcion = descripcion;
+        this.mostrarUbicacionUsuario = mostrarUbicacionUsuario;
 
         AddPinToMap();
 
+        if (mostrarUbicacionUsuario)
+        {
+            hola.IsShowingUser = true;
+        }
     }
     private void AddPinToMap()
     {
@@ -31,6 +37,7 @@ public partial class Mapa : ContentPage
             Label = descripcion,
             Location = new Location(latitud, longitud)
         };
+
 
         hola.Pins.Add(pin);
         hola.MoveToRegion(MapSpan.FromCenterAndRadius(pin.Location, Distance.FromMiles(1)));
