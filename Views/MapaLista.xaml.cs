@@ -41,6 +41,7 @@ public partial class MapaLista : ContentPage
         //validacion que si no hay sitios guardados pues que tire que no hay datos que borrar
         var sitios = await App.Database.GetListSitios();
 
+
         if (sitios.Count == 0)
         {
             await DisplayAlert("Alerta", "No hay sitios para borrar.", "Aceptar");
