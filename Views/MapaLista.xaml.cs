@@ -75,9 +75,50 @@ public partial class MapaLista : ContentPage
 
 
 
-    private void btnActua_Clicked(object sender, EventArgs e)
+    private async void btnActua_Clicked(object sender, EventArgs e)
     {
+        // lista de sitios
+        var sitios = await App.Database.GetListSitios();
 
+        if (sitios.Count == 0)
+        {
+            await DisplayAlert("Alerta", "No hay sitios para actualizar.", "Aceptar");
+            return;
+        }
+
+        // Crea un array con las descripciones de los sitios para mostrar en el ActionSheet
+        var options = sitios.Select(s => s.Desc).ToArray();
+        var selectedSitio = await DisplayActionSheet("Selecciona un sitio para actualizar", "Cancelar", null, options);
+
+        if (selectedSitio == "Cancelar")
+            return;
+
+        // Mostrar un DisplayAlert con un campo de entrada para la nueva descripción
+        string nuevaDescripcion = await DisplayPromptAsync("Actualizar descripción", "Ingresa la nueva descripción:", "Aceptar", "Cancelar", placeholder: "Nueva descripción");
+
+        if (nuevaDescripcion == null) // El usuario presionó "Cancelar"
+            return;
+
+        // Confirmar la actualización
+        var confirmarActualizar = await DisplayAlert("Confirmación", $"¿Estás seguro de actualizar el sitio '{selectedSitio}' con la nueva descripción '{nuevaDescripcion}'?", "Sí", "No");
+
+        if (confirmarActualizar)
+        {
+            var sitioAActualizar = sitios.FirstOrDefault(s => s.Desc == selectedSitio);
+            if (sitioAActualizar != null)
+            {
+                // Actualizar la descripción del sitio en la base de datos
+                sitioAActualizar.Desc = nuevaDescripcion;
+                await App.Database.StoreSitios(sitioAActualizar);
+
+                // Mostrar mensaje de éxito
+                await DisplayAlert("Éxito", "Sitio actualizado correctamente.", "Aceptar");
+
+                // Actualizar la lista de sitios en la interfaz
+                ubicaciones.ItemsSource = await App.Database.GetListSitios();
+            }
+        }
     }
+
 }
 

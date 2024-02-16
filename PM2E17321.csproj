@@ -15,10 +15,10 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>PM2E17321</ApplicationTitle>
+		<ApplicationTitle>PM2E1732113</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.pm2e17321</ApplicationId>
+		<ApplicationId>com.companyname.pm2e1732113</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
