@@ -92,6 +92,20 @@ public partial class Inicio : ContentPage
 
     private async void btnAgregar_Clicked(object sender, EventArgs e)
     {
+
+        // Verificar si se ha tomado la foto y si todos los campos obligatorios están completos
+        if (photo == null ||
+            string.IsNullOrWhiteSpace(Latitud.Text) ||
+            string.IsNullOrWhiteSpace(Longitud.Text) ||
+            string.IsNullOrWhiteSpace(Descripcion.Text))
+        {
+            // Mostrar alerta si algún campo obligatorio está vacío o si no se ha tomado la foto
+            await DisplayAlert("Error", "Por favor, complete todos los campos y tome una foto.", "Aceptar");
+            return;
+        }
+
+
+
         if (double.TryParse(Latitud.Text, out double latitud) && double.TryParse(Longitud.Text, out double longitud))
         {
             var lugar = new Models.Sitios
@@ -123,7 +137,7 @@ public partial class Inicio : ContentPage
 
     private async void btnSalir_Clicked(object sender, EventArgs e)
     {
-        
+        Application.Current.Quit();
     }
 
     private async void btnFoto_Clicked(object sender, EventArgs e)
