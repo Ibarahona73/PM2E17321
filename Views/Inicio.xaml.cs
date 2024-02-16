@@ -10,6 +10,51 @@ public partial class Inicio : ContentPage
         InitializeComponent();
     }
 
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+
+        // Verificar y solicitar permisos de ubicación
+        var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+        if (status != PermissionStatus.Granted)
+        {
+            status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            if (status != PermissionStatus.Granted)
+            {
+                await DisplayAlert("Error", "Los permisos de ubicación no están habilitados.", "OK");
+                return;
+            }
+        }
+
+        // Obtener la ubicación actual
+        try
+        {
+            var location = await Geolocation.GetLocationAsync();
+            if (location != null)
+            {
+                Latitud.Text = location.Latitude.ToString();
+                Longitud.Text = location.Longitude.ToString();
+            }
+            else
+            {
+                await DisplayAlert("Error", "No se pudo obtener la ubicación actual.", "OK");
+            }
+        }
+        catch (FeatureNotSupportedException)
+        {
+            await DisplayAlert("Error", "La geolocalización no es compatible con este dispositivo.", "OK");
+        }
+        catch (PermissionException)
+        {
+            await DisplayAlert("Error", "Los permisos de ubicación no están habilitados.", "OK");
+        }
+        catch (Exception)
+        {
+            await DisplayAlert("Error", "Se produjo un error al obtener la ubicación.", "OK");
+        }
+    }
+
     public String GetImage64()
     {
         if (photo != null)

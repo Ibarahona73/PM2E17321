@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PM2E17321.Views.Mapa"
-             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
-             Title="Mapa">
-    
-    
+             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps">
+
+
+
     <StackLayout>
-        <maps:Map x:Name="hola" MapType="Street"/>
+        <maps:Map x:Name="hola" MapType="Hybrid"/>
 
     </StackLayout>
 

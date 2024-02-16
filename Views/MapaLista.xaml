@@ -11,10 +11,7 @@
         <conver:Base64Image x:Key="BaseArray"/>
     </ContentPage.Resources>
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Mapas" Clicked="ToolbarItem_Clicked" />
-    </ContentPage.ToolbarItems>
-
+    
     <ContentPage.Content>
         <CollectionView x:Name="ubicaciones"
                     SelectionMode="Single"

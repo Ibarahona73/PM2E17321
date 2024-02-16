@@ -19,7 +19,7 @@
         
         <Image Source="uth.png" BackgroundColor="#00000000" HeightRequest="75" WidthRequest="100" HorizontalOptions="CenterAndExpand" Grid.Row="1"/>
 
-        <Label Text="Inicio" FontSize="25" Grid.Row="1" Grid.Column="1" FontAttributes="Bold" TranslationY="10" HorizontalOptions="Start"/>
+        <Label Text="Sitio Visitado" FontSize="25" Grid.Row="1" Grid.Column="1" FontAttributes="Bold" TranslationY="10" HorizontalOptions="StartAndExpand"/>
 
     </Grid>
 
@@ -28,9 +28,9 @@
         
         <Button x:Name="btnFoto" Text="Tomar Foto" Clicked="btnFoto_Clicked"  TranslationY="12.5"/>
 
-        <Entry  x:Name="Latitud" Placeholder="Ingrese una Latitud" Keyboard="Numeric" FontSize="15"  TranslationX="2" TranslationY="25"/>
+        <Entry  x:Name="Latitud" Placeholder="Ingrese una Latitud" Keyboard="Numeric" FontSize="15"  TranslationX="2" TranslationY="25" IsEnabled="False"/>
 
-        <Entry  x:Name="Longitud" Placeholder="Ingrese una Longitud" Keyboard="Numeric" FontSize="15" TranslationX="2" TranslationY="25" />
+        <Entry  x:Name="Longitud" Placeholder="Ingrese una Longitud" Keyboard="Numeric" FontSize="15" TranslationX="2" TranslationY="25" IsEnabled="False"/>
 
         <Entry  x:Name="Descripcion" Placeholder="Descripcion" Keyboard="Text" FontSize="15" TranslationX="2" TranslationY="25" />
 
